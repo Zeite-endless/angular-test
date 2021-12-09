@@ -1,4 +1,15 @@
+body {
+    margin: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .example-card {
-    max-width: 400px;
+    min-width: 300px;
+    min-height: 150px;
+    max-width: 300px;
+    max-height: 150px;
     margin-bottom: 8px;
+    margin: 20px;
 }
