@@ -1,6 +1,6 @@
 <body>
     <div *ngFor="let company of companies">
-        <mat-card class="example-card" *ngIf="company.active">
+        <mat-card class="example-card" *ngIf="!company.active">
             <mat-card-title-group>
                 <mat-card-title>{{company.nomeFantasia}}</mat-card-title>
                 <mat-card-subtitle>{{company.razaoSocial}}</mat-card-subtitle>

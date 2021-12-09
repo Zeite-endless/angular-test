@@ -1,0 +1,23 @@
+* {
+    margin: 0 !important;
+}
+
+span img {
+    width: 200px;
+}
+
+.menus {
+    display: flex;
+    width: 80%;
+    justify-content: space-evenly;
+}
+
+.menus span {
+    margin: 20px;
+    cursor: pointer;
+}
+
+.menus a {
+    text-decoration: none;
+    color: white;
+}
