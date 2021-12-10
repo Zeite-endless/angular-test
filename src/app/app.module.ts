@@ -17,6 +17,7 @@ import { DialogCreationComponent } from './dialog-creation/dialog-creation.compo
 import { MatDialogModule } from '@angular/material/dialog';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import { AttCompanyComponent } from './att-company/att-company.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {MatInputModule} from '@angular/material/input';
     CompaniesComponent,
     HeaderComponent,
     ComapniesInactiveComponent,
-    DialogCreationComponent
+    DialogCreationComponent,
+    AttCompanyComponent
   ],
   imports: [
     BrowserModule,

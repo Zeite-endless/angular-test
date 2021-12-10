@@ -1,3 +1,4 @@
+import { AttCompanyComponent } from './../att-company/att-company.component';
 import { DialogCreationComponent } from './../dialog-creation/dialog-creation.component';
 import { Component, OnInit } from '@angular/core';
 import { CompanyServiceService } from '../services/company-service.service';
@@ -37,19 +38,19 @@ export class CompaniesComponent implements OnInit {
   newCompany(){
     let dialogRef = this.dialog.open(DialogCreationComponent);
     dialogRef.afterClosed().subscribe(result => {
-      this.company = result;
+      this.company = {...result};
       this.companyService.saveCompany(this.company)
     });
   }
 
   updateCompany(company: Company){
-    let dialogRef = this.dialog.open(DialogCreationComponent, {data: { ...company }});
+    let dialogRef = this.dialog.open(AttCompanyComponent, {data: { ...company }});
     dialogRef.afterClosed().subscribe(result => {
-      this.company = result;
-      this.companyService.updateCompany(this.company);
+      if(result != undefined){
+        this.company = {...result};
+        this.companyService.updateCompany(this.company);
+      }
     });
   }
-
-  // Limpa o form
 
 }

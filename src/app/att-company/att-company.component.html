@@ -1,5 +1,8 @@
 <div class="example-container">
     <div class="form-container">
+        <div *ngIf="data.avatarUrl" style="text-align: center;">
+            <img mat-card-md-image [src]="data.avatarUrl">
+        </div>
         <form [formGroup]="descricao">
             <mat-form-field class="form-field" appearance="outline">
                 <mat-label> Nome Fantasia
@@ -20,7 +23,8 @@
                 <input matInput formControlName="qtdeFuncionarios" type="number">
             </mat-form-field>
 
-            <button mat-raised-button color="primary" type="button" (click)="closeModal()">Cadastrar</button>
+            <button mat-raised-button color="primary" type="button" (click)="closeModal()">Atualizar</button>
+            <button mat-raised-button color="warn" type="button" (click)="excludeCompany()">Excluir</button>
         </form>
     </div>
 </div>
