@@ -27,7 +27,7 @@ export class CompanyServiceService {
   }
 
   // GET de companhia isolada
-  getCarById(id: number): Observable<Company> {
+  getCompanyById(id: number): Observable<Company> {
     return this.httpClient.get<Company>(this.url + '/' + id)
       .pipe(retry(2),
         catchError(this.handleError
@@ -35,7 +35,7 @@ export class CompanyServiceService {
   }
 
   // POST de uma nova comapnhia
-  saveCar(company: Company): Observable<Company> {
+  saveCompany(company: Company): Observable<Company> {
     return this.httpClient.post<Company>(this.url, JSON.stringify(company), this.httpOptions).pipe(
       retry(2),
       catchError(this.handleError)

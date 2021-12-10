@@ -1,0 +1,33 @@
+<div class="example-container">
+    <div class="form-container">
+        <form [formGroup]="descricao">
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Nome Fantasia
+                </mat-label>
+                <input matInput formControlName="nomeFantasia" required>
+
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Razão Social
+                </mat-label>
+                <input matInput formControlName="razaoSocial">
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Quantidade de Funcionários
+                </mat-label>
+                <input matInput formControlName="qtdeFuncionarios" type="number">
+            </mat-form-field>
+
+            <mat-form-field class="form-field" appearance="outline">
+                <mat-label> Url Avatar
+                </mat-label>
+                <input matInput formControlName="avatarUrl">
+            </mat-form-field>
+
+            <button mat-raised-button color="primary" type="button" (click)="closeModal()" *ngIf="!data.nomeFantasia">Cadastrar</button>
+            <button mat-raised-button color="primary" type="button" (click)="updateModal()" *ngIf="data.nomeFantasia">Atualizar Dados</button>
+        </form>
+    </div>
+</div>

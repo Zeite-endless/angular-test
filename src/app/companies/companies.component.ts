@@ -1,7 +1,8 @@
+import { DialogCreationComponent } from './../dialog-creation/dialog-creation.component';
 import { Component, OnInit } from '@angular/core';
 import { CompanyServiceService } from '../services/company-service.service';
 import { Company } from '../models/company';
-import { NgForm } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-companies',
@@ -17,7 +18,8 @@ export class CompaniesComponent implements OnInit {
   // Cria variável companies sendo uma Company Array
   companies = [] as Company[];
 
-  constructor(private companyService: CompanyServiceService) { }
+  constructor(private companyService: CompanyServiceService,
+              private dialog: MatDialog) { }
 
   ngOnInit(): void {
     // Chama o método getComapanies() ao inicializar o módulo
@@ -30,5 +32,24 @@ export class CompaniesComponent implements OnInit {
       this.companies = companies
     })
   }
+
+  // Criar companhia
+  newCompany(){
+    let dialogRef = this.dialog.open(DialogCreationComponent);
+    dialogRef.afterClosed().subscribe(result => {
+      this.company = result;
+      this.companyService.saveCompany(this.company)
+    });
+  }
+
+  updateCompany(company: Company){
+    let dialogRef = this.dialog.open(DialogCreationComponent, {data: { ...company }});
+    dialogRef.afterClosed().subscribe(result => {
+      this.company = result;
+      this.companyService.updateCompany(this.company);
+    });
+  }
+
+  // Limpa o form
 
 }

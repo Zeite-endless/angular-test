@@ -16,3 +16,14 @@ body {
 .example-card img {
     border-radius: 50%;
 }
+
+.mat-card {
+    cursor: pointer;
+}
+
+button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    z-index: 100;
+}
